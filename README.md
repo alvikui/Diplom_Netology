@@ -28,6 +28,9 @@
 ### Документация
 
 [План тестирования](https://github.com/alvikui/Diplom_Netology/blob/main/Plan.md)
+
 [Чек-лист](https://github.com/alvikui/Diplom_Netology/blob/main/Check.xlsx)
+
 [Тест-кейсы](https://github.com/alvikui/Diplom_Netology/blob/main/Cases.xlsx)
+
 [Отчет о тестировании](https://github.com/alvikui/Diplom_Netology/blob/main/Result.md)
