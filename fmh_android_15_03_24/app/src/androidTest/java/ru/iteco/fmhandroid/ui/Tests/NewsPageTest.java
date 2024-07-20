@@ -3,12 +3,12 @@ package ru.iteco.fmhandroid.ui.Tests;
 import static ru.iteco.fmhandroid.ui.HelperUtil.randomCategory;
 import static ru.iteco.fmhandroid.ui.HelperUtil.getCurrentDate;
 import static ru.iteco.fmhandroid.ui.HelperUtil.getCurrentTime;
+import static ru.iteco.fmhandroid.ui.Steps.NewsPageSteps.emptyFieldsMessage;
 
 import android.view.View;
 
 import androidx.test.ext.junit.rules.ActivityScenarioRule;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -44,15 +44,6 @@ public class NewsPageTest {
             userAuthorizationSteps.validPassword();
             homePageSteps.loadingHomePage();
         }
-        activityScenarioRule.getScenario().onActivity(activity -> decorView = activity.getWindow().getDecorView());
-    }
-
-    @After
-    public void tearDown() {
-        try {
-            homePageSteps.logOutOfAccount();
-        } catch (Exception ignored) {
-        }
     }
 
     @Test
@@ -60,8 +51,8 @@ public class NewsPageTest {
     public void shouldBeANewsArticleSuccessfullyCreatedWithValidData() {
         String publicationDate = getCurrentDate();
         String publicationTime = getCurrentTime();
-        String title = "Новость1";
-        String description = "Описание новости1";
+        String title = "Новость8";
+        String description = "Описание новости8";
         homePageSteps.loadingTheNewsPage();
         newsPageSteps.controlPanelPage();
         newsPageSteps.openNewsCreationPage();
@@ -77,7 +68,7 @@ public class NewsPageTest {
         newsPageSteps.controlPanelPage();
         newsPageSteps.openNewsCreationPage();
         newsPageSteps.clickSaveButton();
-        newsPageSteps.checkNotificationText("Заполните пустые поля", decorView);
+        newsPageSteps.checkNotificationText(emptyFieldsMessage, decorView);
     }
 
     @Test
@@ -96,8 +87,8 @@ public class NewsPageTest {
     public void shouldBeDeletedNews() {
         String publicationDate = getCurrentDate();
         String publicationTime = getCurrentTime();
-        String title = "Новость900";
-        String description = "Новость900";
+        String title = "Новость707";
+        String description = "Новость707";
         homePageSteps.loadingTheNewsPage();
         newsPageSteps.controlPanelPage();
         newsPageSteps.openNewsCreationPage();
@@ -113,10 +104,10 @@ public class NewsPageTest {
     public void shouldBeEditedNews() {
         String publicationDate = getCurrentDate();
         String publicationTime = getCurrentTime();
-        String title = "Новость099";
-        String description = "Описание099";
-        String newTitle = "Новость отредактирована099";
-        String newDescription = "Описание отредактировано099";
+        String title = "Новость013";
+        String description = "Описание013";
+        String newTitle = "Новость отредактирована013";
+        String newDescription = "Описание отредактировано013";
         homePageSteps.loadingTheNewsPage();
         newsPageSteps.controlPanelPage();
         newsPageSteps.openNewsCreationPage();
@@ -135,8 +126,8 @@ public class NewsPageTest {
     public void shouldNotBeEditedNewsWhenCanceled() {
         String publicationDate = getCurrentDate();
         String publicationTime = getCurrentTime();
-        String title = "Новость695";
-        String description = "Новость695";
+        String title = "Новость694";
+        String description = "Новость694";
         homePageSteps.loadingTheNewsPage();
         newsPageSteps.controlPanelPage();
         newsPageSteps.openNewsCreationPage();

@@ -2,7 +2,6 @@ package ru.iteco.fmhandroid.ui.Tests;
 
 import androidx.test.ext.junit.rules.ActivityScenarioRule;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -35,14 +34,6 @@ public class HomePageTest {
             userAuthorizationSteps.validLogin();
             userAuthorizationSteps.validPassword();
             homePageSteps.loadingHomePage();
-        }
-    }
-
-    @After
-    public void tearDown() {
-        try {
-            homePageSteps.logOutOfAccount();
-        } catch (Exception ignored) {
         }
     }
 

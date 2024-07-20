@@ -6,16 +6,18 @@ import static androidx.test.espresso.action.ViewActions.replaceText;
 import static androidx.test.espresso.assertion.ViewAssertions.doesNotExist;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
-import static androidx.test.espresso.matcher.RootMatchers.withDecorView;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
-import static org.hamcrest.Matchers.not;
 import static org.hamcrest.Matchers.allOf;
-
-import android.view.View;
 
 import static ru.iteco.fmhandroid.ui.HelperUtil.elementWaiting;
 import static ru.iteco.fmhandroid.ui.HelperUtil.withIndex;
+
+import android.view.View;
+
+import androidx.test.espresso.matcher.RootMatchers;
+
+import org.hamcrest.Matchers;
 
 import io.qameta.allure.kotlin.Allure;
 import ru.iteco.fmhandroid.R;
@@ -141,8 +143,10 @@ public class NewsPageSteps {
         newsPagePage.OKButtonInNotification.perform(click());
     }
 
-    public void checkNotificationText(String text, View decorView) {
+    public static final String emptyFieldsMessage = "Заполните пустые поля";
+
+    public void checkNotificationText(String expectedText, View decorView) {
         Allure.step("Проверка уведомления");
-        onView(withText(text)).inRoot(withDecorView(not(decorView))).check(matches(isDisplayed()));
+        onView(withText(expectedText)).inRoot(RootMatchers.withDecorView(Matchers.not(decorView))).check(matches(isDisplayed()));
     }
 }

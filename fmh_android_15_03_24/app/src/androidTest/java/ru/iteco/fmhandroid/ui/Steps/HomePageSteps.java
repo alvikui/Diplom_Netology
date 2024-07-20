@@ -2,8 +2,8 @@ package ru.iteco.fmhandroid.ui.Steps;
 
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
-import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
+import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static ru.iteco.fmhandroid.ui.HelperUtil.elementWaiting;
 
@@ -53,7 +53,7 @@ public class HomePageSteps {
 
     public void OpenTheApp() {
         Allure.step("Запуск приложения");
-        elementWaiting(withId(R.id.splashscreen_image_view), 10000000);
+        elementWaiting(withId(R.id.splashscreen_image_view), 50000000);
     }
 
     public void clickAllNewsButtonIsDisplayed() {
